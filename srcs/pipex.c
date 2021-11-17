@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 11:32:09 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/17 18:39:12 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/17 19:07:35 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void	verify_cmd(t_data *data, int cmd, int spath, int ind)
 			tmp = NULL;
 			tmp = get_command_pathern(data->splited_path[spath],
 				data->cmd[cmd], 0, 0);
-			PRINTS(tmp)
 			if (tmp == NULL)
 			{
 				free_all_data(data, 0);
@@ -91,14 +90,11 @@ void	verify_cmd(t_data *data, int cmd, int spath, int ind)
 			}
 			ind = access(tmp, F_OK | X_OK);
 			free(tmp);
-			perror(strerror(errno));
 			PRINTD(ind)
 			spath++;
 		}
-		if (ind == 0)
-		{
-			D
-		}
+		// if (ind == -1)
+			// command_doesnt_exist();
 		spath = 0;
 		cmd++;
 	}
