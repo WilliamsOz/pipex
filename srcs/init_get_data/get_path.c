@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   get_path.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 13:51:19 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/17 18:22:09 by wiozsert         ###   ########.fr       */
+/*   Created: 2021/11/17 13:54:53 by wiozsert          #+#    #+#             */
+/*   Updated: 2021/11/18 11:22:36 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/pipex.h"
+#include "../../inc/pipex.h"
 
-void	free_data(t_data *data)
+t_data	*get_path(t_data *data, char **env, int i, int j)
 {
-	free(data);
-	data = NULL;
-}
-
-void	free_all_data(t_data *data, int count)
-{
-	while (data->splited_path[count] != NULL)
+	while (env[i] != NULL)
 	{
-		free(data->splited_path[count]);
-		count++;
+		while (env[i][j] != '\0')
+		{
+			if (env[i][j] == 'P' && env[i][j + 1] == 'A'
+				&& env[i][j + 2] == 'T' && env[i][j + 3] == 'H'
+				&& env[i][j + 4] == '=' && env[i][j + 5] != '\0')
+				{
+					data->path = env[i];
+					return (data);
+				}
+			i++;
+		}
 	}
-	free(data->splited_path[count]);
-	free(data->splited_path);
-	free(data->cmd);
-	free_data(data);
+	data->path = NULL;
+	return (data);
 }

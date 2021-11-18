@@ -6,11 +6,17 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 13:49:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/17 16:47:08 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/18 11:29:53 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/pipex.h"
+#include "../../inc/pipex.h"
+
+void	not_enough_arguments()
+{
+	ft_putstr("There is not enough argument\n");
+	exit (EXIT_FAILURE);
+}
 
 void	path_env_modified(t_data *data)
 {
@@ -23,5 +29,13 @@ void	there_is_no_command(t_data *data)
 {
 	ft_putstr("There is no command\n");
 	free_data(data);
+	exit (EXIT_FAILURE);
+}
+
+void	command_doesnt_exist(t_data *data, char *cmd)
+{
+	ft_putstr(cmd);
+	ft_putstr(" command does not exist\n");
+	free_all_data(data, 0);
 	exit (EXIT_FAILURE);
 }

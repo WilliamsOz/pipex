@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 13:40:43 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/17 17:52:49 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/18 11:20:26 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/pipex.h"
+#include "../../inc/pipex.h"
 
 void	data_cmd_malloc_failed(t_data *data)
 {
@@ -42,5 +42,12 @@ void	malloc_inside_splitted_path_failed(t_data *data, int count)
 	}
 	free(data->splited_path);
 	free_data(data);
+	exit (EXIT_FAILURE);
+}
+
+void	malloc_of_cmd_and_pathern_failed(t_data *data)
+{
+	ft_putstr("Malloc of strcat pathern and cmd has failed\n");
+	free_all_data(data, 0);
 	exit (EXIT_FAILURE);
 }

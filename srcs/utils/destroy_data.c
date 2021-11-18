@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   destroy_data.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/12 14:37:23 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/17 13:24:44 by wiozsert         ###   ########.fr       */
+/*   Created: 2021/11/18 11:21:11 by wiozsert          #+#    #+#             */
+/*   Updated: 2021/11/18 11:21:24 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/pipex.h"
+#include "../../inc/pipex.h"
 
-int	ft_strlen(char *str)
+void	free_data(t_data *data)
 {
-	int	i;
+	free(data);
+	data = NULL;
+}
 
-	i = 0;
-	if (str == NULL)
-		return (0);
-	while (str[i] != '\0')
-		i++;
-	return (i);
+void	free_all_data(t_data *data, int count)
+{
+	while (data->splited_path[count] != NULL)
+	{
+		free(data->splited_path[count]);
+		count++;
+	}
+	free(data->splited_path[count]);
+	free(data->splited_path);
+	free(data->cmd);
+	free_data(data);
 }
