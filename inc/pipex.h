@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 11:33:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/18 11:28:41 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/19 18:33:20 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,25 @@
 
 #include <errno.h> // errno
 
+typedef struct s_lk_data
+{
+	char				*path_cmd;
+	char				**cmd;
+	struct s_lk_data	*next;
+}				t_lk_data;
+
 typedef struct s_data
 {
-	char	*path;
-	char	**cmd;
-	char	**splited_path;
+	char		*path;
+	char		**cmd;
+	char		**splited_path;
+	t_lk_data	*lk_data;
 }               t_data;
 
 //DELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDEL
 
 #define D printf("ICI\n");
+#define PRINT(x) printf(x);
 #define PRINTS(x) printf("%s\n", x);
 #define PRINTD(x) printf("%d\n", x);
 #define PRINTC(x) printf("%c\n", x);
@@ -45,6 +54,11 @@ typedef struct s_data
 
 //DELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDEL
 
+t_data	*get_cmd_and_flags(t_data *data, char *av);
+t_data	*prepare_data_lk(t_data *data, char **av, int i, int cmd);
+char	*get_command_pathern(char *s1, char *cmd, int i, int j);
+void	link_inside_data_lk_failed(t_data *data);
+void	data_lk_malloc_failed(t_data *data);
 t_data	*check_all_errors(char **av, char **env, t_data *data);
 t_data	*init_and_get_splitted_path(t_data *data);
 t_data	*get_path(t_data *data, char **env, int i, int j);

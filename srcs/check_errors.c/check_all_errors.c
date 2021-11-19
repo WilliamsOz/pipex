@@ -6,40 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 11:16:59 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/18 11:29:59 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/19 14:38:17 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/pipex.h"
-
-static char	*get_command_pathern(char *s1, char *cmd, int i, int j)
-{
-	char	*dest;
-	int		len;
-
-	len = ft_strlen(s1);
-	while (cmd[i] != '\0' && cmd[i] != ' ')
-		i++;
-	len += i;
-	dest = NULL;
-	dest = (char *)malloc(sizeof(char) * (len + 1));
-	if (dest == NULL)
-		return (NULL);
-	dest[len] = '\0';
-	i = 0;
-	while (s1[i] != '\0')
-	{
-		dest[i] = s1[i];
-		i++;
-	}
-	while (cmd[j] != '\0' && cmd[j] != ' ')
-	{
-		dest[i] = cmd[j];
-		i++;
-		j++;
-	}
-	return (dest);
-}
 
 static int	check_absolute_path_access(t_data *data, int cmd)
 {
