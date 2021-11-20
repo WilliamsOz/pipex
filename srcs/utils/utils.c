@@ -6,11 +6,26 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 13:51:19 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/19 14:37:05 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/20 12:41:18 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/pipex.h"
+
+int		ft_lst_size(t_lk_data *lk)
+{
+	t_lk_data	*tmp;
+	int			len;
+
+	len = 0;
+	tmp = lk;
+	while (tmp != NULL)
+	{
+		tmp = tmp->next;
+		len++;
+	}
+	return (len);
+}
 
 int		ft_strlen(char *str)
 {

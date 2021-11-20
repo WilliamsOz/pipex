@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 16:58:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/19 18:40:56 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/20 13:28:31 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,16 @@ t_data	*prepare_data_lk(t_data *data, char **av, int i, int cmd)
 	{
 		len = get_size_cmd_with_flags(av[i], 0);
 		tmp->cmd = (char **)malloc(sizeof(char *) * (len + 1));
-		// if (tmp->cmd == NULL)
-			// malloc_of_init_cmd_inside_lk_failed(data);
+		if (tmp->cmd == NULL)
+			malloc_of_init_cmd_inside_lk_failed(data, i - 3);
 		tmp->cmd[len] = NULL;
-		data = get_cmd_and_flags(data, av[i]);
+		data = get_cmd_and_flags(data, av[i], tmp);
 		tmp->path_cmd = get_direct_path(data, cmd, 0);
 		tmp = tmp->next;
 		i++;
 		cmd++;
 	}
+	data->fd_file[0] = open(av[1], O_RDWR);
+	data->fd_file[1] = open(av[i], O_RDWR);
 	return (data);
 }
