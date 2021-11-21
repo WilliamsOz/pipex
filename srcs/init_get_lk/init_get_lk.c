@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 16:58:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/20 13:28:31 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/21 15:34:55 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ t_data	*prepare_data_lk(t_data *data, char **av, int i, int cmd)
 		i++;
 		cmd++;
 	}
-	data->fd_file[0] = open(av[1], O_RDWR);
-	data->fd_file[1] = open(av[i], O_RDWR);
+	data->input_file = open(av[1], O_RDWR);
+	data->output_file = open(av[i], O_RDWR);
 	return (data);
 }

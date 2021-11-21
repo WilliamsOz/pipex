@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_path.c                                         :+:      :+:    :+:   */
+/*   pipex_errors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 13:54:53 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/21 15:18:42 by wiozsert         ###   ########.fr       */
+/*   Created: 2021/11/20 17:29:01 by wiozsert          #+#    #+#             */
+/*   Updated: 2021/11/20 17:29:30 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/pipex.h"
 
-t_data	*get_path(t_data *data, char **env, int i, int j)
+void	pipe_opening_has_failed(t_data *data)
 {
-	while (env[i] != NULL)
-	{
-		while (env[i][j] != '\0')
-		{
-			if (env[i][j] == 'P' && env[i][j + 1] == 'A'
-				&& env[i][j + 2] == 'T' && env[i][j + 3] == 'H'
-				&& env[i][j + 4] == '=' && env[i][j + 5] != '\0')
-				{
-					data->path = env[i];
-					return (data);
-				}
-			i++;
-		}
-	}
-	data->path = NULL;
-	return (data);
+	ft_putstr("Pipe opening has failed\n");
+	destroy_data(data);
+	exit (EXIT_FAILURE);
 }

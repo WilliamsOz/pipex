@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 11:33:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/20 13:31:45 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/21 15:34:11 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,13 @@ typedef struct s_lk_data
 
 typedef struct s_data
 {
-	char		*path;
-	char		**cmd;
-	char		**splited_path;
-	t_lk_data	*lk_data;
-	char		**env;
-	int			fd_file[2];
+	char		*path; //not mal
+	char		**cmd; //**cmd mal not cmd[count]
+	char		**splited_path; //mal
+	t_lk_data	*lk_data; //mal
+	char		**env; //not_mal
+	int			input_file;
+	int			output_file;
 	int			pipe_fd[2];
 	int			pipe_ret;
 	pid_t		child_pid;
@@ -60,6 +61,10 @@ typedef struct s_data
 
 //DELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDEL
 
+void	free_lk(t_data *data, int count);
+void	destroy_data(t_data *data);
+void	free_splited_path(t_data *data, int count);
+void	pipe_opening_has_failed(t_data *data);
 t_data	*get_cmd_and_flags(t_data *data, char *av, t_lk_data *tmp);
 t_data	*prepare_data_lk(t_data *data, char **av, int i, int cmd);
 char	*get_command_pathern(char *s1, char *cmd, int i, int j);

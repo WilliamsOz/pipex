@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 11:21:11 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/20 13:07:33 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/21 15:23:13 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,31 @@ void	free_all_data(t_data *data, int count)
 	free(data->splited_path);
 	free(data->cmd);
 	free_data(data);
+}
+
+void	free_lk(t_data *data, int count)
+{
+	t_lk_data	*tmp;
+
+	while (data->lk_data != NULL)
+	{
+		tmp = data->lk_data;
+		data->lk_data = data->lk_data->next;
+		while (tmp->cmd[count] != NULL)
+		{
+			free(tmp->cmd[count]);
+			count++;
+		}
+		free(tmp->cmd[count]);
+		free(tmp->cmd);
+		free(tmp->path_cmd);
+		free(tmp);
+		count = 0;
+	}
+}
+
+void	destroy_data(t_data *data)
+{
+	free_lk(data, 0);
+	free_all_data(data, 0);
 }
