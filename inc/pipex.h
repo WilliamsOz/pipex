@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 11:33:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/21 15:34:11 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/23 12:37:07 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_data
 	char		**env; //not_mal
 	int			input_file;
 	int			output_file;
-	int			pipe_fd[2];
+	int			**pipe_fd;
 	int			pipe_ret;
 	pid_t		child_pid;
 	int			status;
@@ -71,6 +71,7 @@ char	*get_command_pathern(char *s1, char *cmd, int i, int j);
 void	link_inside_data_lk_failed(t_data *data);
 void	data_lk_malloc_failed(t_data *data);
 t_data	*check_all_errors(char **av, char **env, t_data *data);
+void	init_pipe_in_data_failed(t_data *data);
 t_data	*init_and_get_splitted_path(t_data *data);
 t_data	*get_path(t_data *data, char **env, int i, int j);
 t_data	*init_and_get_cmd(t_data *data, char **av, int count, int i);
@@ -80,6 +81,9 @@ void	command_doesnt_exist(t_data *data, char *cmd);
 void	path_env_modified(t_data *data);
 void	there_is_no_command(t_data *data);
 void	not_enough_arguments();
+void	execve_failed(t_data *data);
+void	fork_failed(t_data *data);
+void	malloc_pipe_in_data_failed(t_data *data, int count);
 void	malloc_of_cmd_lk_failed(t_data *data, int count);
 void	malloc_of_init_cmd_inside_lk_failed(t_data *data, int i);
 void	malloc_of_cmd_and_pathern_failed(t_data *data);

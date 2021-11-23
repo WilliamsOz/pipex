@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 11:21:11 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/21 15:23:13 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/23 12:34:09 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,20 @@ void	free_lk(t_data *data, int count)
 	}
 }
 
+void	free_pipe(t_data *data, int count)
+{
+	while (data->pipe_fd[count] != NULL)
+	{
+		free(data->pipe_fd[count]);
+		count++;
+	}
+	free(data->pipe_fd[count]);
+	free(data->pipe_fd);
+}
+
 void	destroy_data(t_data *data)
 {
 	free_lk(data, 0);
+	free_pipe(data, 0);
 	free_all_data(data, 0);
 }

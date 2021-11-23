@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 16:58:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/21 15:34:55 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/23 12:05:22 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,26 @@ static int	get_size_cmd_with_flags(char *av, int i)
 	return (len);
 }
 
+static t_data	*prepare_data_pipe(t_data *data, int len)
+{
+	while (data->cmd[len + 1] != NULL)
+		len++;
+	data->pipe_fd = (int **)malloc(sizeof(int *) * (len + 1));
+	if (data->pipe_fd == NULL)
+		init_pipe_in_data_failed(data);
+	data->pipe_fd[len] = NULL;
+	len = 0;
+	while (data->cmd[len + 1] != NULL)
+	{
+		data->pipe_fd[len] = (int *)malloc(sizeof(int) * 2);
+		if (data->pipe_fd[len] == NULL)
+			malloc_pipe_in_data_failed(data, len -1);
+		pipe(data->pipe_fd[len]);
+		len++;
+	}
+	return (data);
+}
+
 t_data	*prepare_data_lk(t_data *data, char **av, int i, int cmd)
 {
 	t_lk_data	*tmp;
@@ -96,5 +116,6 @@ t_data	*prepare_data_lk(t_data *data, char **av, int i, int cmd)
 	}
 	data->input_file = open(av[1], O_RDWR);
 	data->output_file = open(av[i], O_RDWR);
+	data = prepare_data_pipe(data, 0);
 	return (data);
 }
