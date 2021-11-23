@@ -37,19 +37,6 @@
 	// close(data->output_file);
 	// close(data->pipe_fd[0]);
 
-void	first_cmd_child_close(t_data *data, int count)
-{
-	close(data->output_file);
-	close(data->pipe_fd[0][0]);
-	count++;
-	while (data->pipe_fd[count] != NULL)
-	{
-		close(data->pipe_fd[count][0]);
-		close(data->pipe_fd[count][1]);
-		count++;
-	}
-}
-
 void	first_cmd(t_data *data, t_lk_data *tmp)
 {
 	data->child_pid = fork();
@@ -57,14 +44,18 @@ void	first_cmd(t_data *data, t_lk_data *tmp)
 		fork_failed(data);
 	if (data->child_pid == 0)
 	{
-		first_cmd_child_close(data, 1);
+		dup2(data->input_file, STDIN_FILENO);
 		dup2(data->pipe_fd[0][1], STDOUT_FILENO);
+		close(data->input_file);
 		close(data->pipe_fd[0][1]);
 		execve(tmp->path_cmd, tmp->cmd, data->env);
 		execve_failed(data);
 	}
 	else
-		close(data->output_file);
+	{
+		close(data->input_file);
+		close(data->pipe_fd[0][1]);
+	}
 	wait(&data->status);
 }
 
@@ -78,8 +69,8 @@ void	last_cmd(t_data *data, t_lk_data *tmp, int count)
 		close(data->pipe_fd[count - 1][1]);
 		dup2(data->pipe_fd[count - 1][0], STDIN_FILENO);
 		dup2(data->output_file, STDOUT_FILENO);
-		close(data->output_file);
-		close(data->pipe_fd[count - 1][0]);
+		// close(data->output_file);
+		//close(data->pipe_fd[count - 1][0]);
 		execve(tmp->path_cmd, tmp->cmd, data->env);
 		execve_failed(data);
 	}
