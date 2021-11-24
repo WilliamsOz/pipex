@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:06:00 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/24 17:17:13 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/24 18:30:58 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void	mid_cmd(t_data *data, t_lk_data *tmp, int count)
 		dup2(data->pipe_fd[count][1], STDOUT_FILENO);
 		close(data->pipe_fd[count][1]);
 		execve(tmp->path_cmd, tmp->cmd, data->env);
+		execve_failed(data);
 	}
 	else
 	{
@@ -33,7 +34,7 @@ static void	mid_cmd(t_data *data, t_lk_data *tmp, int count)
 	}
 }
 
-void	treat_mid_cmds(t_data *data, t_lk_data *tmp, int *ptr_count)
+t_lk_data	*treat_mid_cmds(t_data *data, t_lk_data *tmp, int *ptr_count)
 {
 	while (data->cmd[(*ptr_count) + 1] != NULL)
 	{
@@ -41,4 +42,5 @@ void	treat_mid_cmds(t_data *data, t_lk_data *tmp, int *ptr_count)
 		*ptr_count += 1;
 		tmp = tmp->next;
 	}
+	return (tmp);
 }

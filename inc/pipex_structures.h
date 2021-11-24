@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:08:57 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/24 17:20:04 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/24 18:20:19 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,18 @@
 //char *strerror(int errnum); => Obtenir le libellé d'un numéro d'erreur.
 // perror(strerror(errno));
 # include <errno.h> // errno
+
+//DELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDEL
+
+#define D printf("ICI\n");
+#define PRINT(x) printf(x);
+#define PRINTS(x) printf("%s\n", x);
+#define PRINTD(x) printf("%d\n", x);
+#define PRINTC(x) printf("%c\n", x);
+#define PRINTP(x) printf("%p\n", x);
+#define ex exit (EXIT_FAILURE);
+
+//DELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDEL
 
 typedef struct s_lk_data
 {

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 11:32:09 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/24 16:16:08 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/24 18:34:57 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,10 @@ void	pipex(t_data *data, int count)
 	tmp = tmp->next;
 	count++;
 	if (BONUS == 1 && data->cmd[count + 1] != NULL)
-		treat_mid_cmds(data, tmp, &count);
+		tmp = treat_mid_cmds(data, tmp, &count);
 	last_cmd(data, tmp, count);
 	close_pipex_fd();
 }
-
-//fermer les fd en cas de fail de fork
-//fermer les fd en cas de fail de execve
 
 int	main(int ac, char **av, char **env)
 {
@@ -36,10 +33,7 @@ int	main(int ac, char **av, char **env)
 	if (ac < 5)
 		not_enough_arguments();
 	if (BONUS == 0 && ac > 5)
-	{
-		ft_putstr("Too many arguments\n");
-		return (0);
-	}
+		too_many_arguments();
 	data = NULL;
 	data = check_all_errors(av, env, data);
 	data = prepare_data_lk(data, av, 2, 0);

@@ -1,1 +1,7 @@
-      8      65     387
+inc
+lol
+Makefile
+obj
+pipex
+srcs
+xd

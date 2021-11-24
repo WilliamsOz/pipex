@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 17:29:01 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/24 17:19:02 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/24 18:29:28 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	pipe_opening_has_failed(t_data *data)
 {
 	ft_putstr("Pipe opening has failed\n");
 	destroy_data(data);
+	close_pipex_fd();
 	exit (EXIT_FAILURE);
 }
 
@@ -23,6 +24,7 @@ void	init_pipe_in_data_failed(t_data *data)
 {
 	ft_putstr("Initialisation of pipe inside data has failed\n");
 	destroy_data(data);
+	close_pipex_fd();
 	exit (EXIT_FAILURE);
 }
 
@@ -36,6 +38,7 @@ void	malloc_pipe_in_data_failed(t_data *data, int count)
 	}
 	free(data->pipe_fd);
 	destroy_data(data);
+	close_pipex_fd();
 	exit (EXIT_FAILURE);
 }
 
@@ -43,6 +46,7 @@ void	fork_failed(t_data *data)
 {
 	ft_putstr("Fork has failed\n");
 	destroy_data(data);
+	close_pipex_fd();
 	exit (EXIT_FAILURE);
 }
 
@@ -50,5 +54,6 @@ void	execve_failed(t_data *data)
 {
 	perror(strerror(errno));
 	destroy_data(data);
+	close_pipex_fd();
 	exit (EXIT_FAILURE);
 }

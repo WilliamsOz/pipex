@@ -6,26 +6,14 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 11:33:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/24 17:52:30 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/24 18:27:58 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-//DELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDEL
-
-#define D printf("ICI\n");
-#define PRINT(x) printf(x);
-#define PRINTS(x) printf("%s\n", x);
-#define PRINTD(x) printf("%d\n", x);
-#define PRINTC(x) printf("%c\n", x);
-#define PRINTP(x) printf("%p\n", x);
-#define ex exit (EXIT_FAILURE);
-
-//DELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDEL
-
-# define BONUS 0
+# define BONUS 1
 # include "./pipex_structures.h"
 # include "./pipex_bonus.h"
 
@@ -51,6 +39,7 @@ void	free_all_data(t_data *data, int count);
 void	command_doesnt_exist(t_data *data, char *cmd);
 void	path_env_modified(t_data *data);
 void	there_is_no_command(t_data *data);
+void	too_many_arguments();
 void	not_enough_arguments();
 void	execve_failed(t_data *data);
 void	fork_failed(t_data *data);
