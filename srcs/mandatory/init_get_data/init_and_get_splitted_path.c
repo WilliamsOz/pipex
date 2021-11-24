@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 14:43:30 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/21 15:18:59 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/24 17:18:27 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/pipex.h"
+#include "../../../inc/pipex.h"
 
 static t_data	*init_splitted_path(t_data *data, int count, int i)
 {

@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 11:21:11 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/23 12:34:09 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/24 17:19:15 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/pipex.h"
+#include "../../../inc/pipex.h"
 
 void	free_data(t_data *data)
 {

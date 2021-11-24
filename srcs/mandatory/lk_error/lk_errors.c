@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 14:18:41 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/20 12:51:25 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/24 17:18:40 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/pipex.h"
+#include "../../../inc/pipex.h"
 
 void	data_lk_malloc_failed(t_data *data)
 {

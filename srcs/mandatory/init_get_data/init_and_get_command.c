@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 14:38:05 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/23 10:59:07 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/24 17:18:23 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/pipex.h"
+#include "../../../inc/pipex.h"
 
 static t_data	*get_cmd(t_data *data, char **av, int count, int i)
 {

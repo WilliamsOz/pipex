@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 13:54:53 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/23 10:59:07 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/24 17:18:20 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/pipex.h"
+#include "../../../inc/pipex.h"
 
 t_data	*get_path(t_data *data, char **env, int i, int j)
 {

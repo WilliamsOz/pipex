@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 11:33:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/24 17:03:20 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/24 17:52:30 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 //DELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDEL
 
 # define BONUS 0
-# include "./pipex_structure.h"
+# include "./pipex_structures.h"
 # include "./pipex_bonus.h"
 
 void	last_cmd(t_data *data, t_lk_data *tmp, int count);

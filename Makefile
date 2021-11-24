@@ -6,20 +6,34 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 13:15:41 by wiozsert          #+#    #+#              #
-#    Updated: 2021/11/24 17:05:05 by wiozsert         ###   ########.fr        #
+#    Updated: 2021/11/24 17:54:47 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
 FLAGS = -Wall -Wextra -Werror #-fsanitize=address
-uname = 
 
 #srcs
-FILESC = $(shell find ./srcs/ -type f) #definir les .c en brut pour wilcard
+PATHFC = ./srcs/mandatory/
+PATHCE = $(PATHFC)check_errors/
+PATHIGD = $(PATHFC)init_get_data/
+PATHPE = $(PATHFC)parsing_errors/
+PATHIGLK = $(PATHFC)init_get_lk/
+PATHRC = $(PATHFC)run_cmds/
+PATHPIE = $(PATHFC)pipex_errors/
+PATHLKE = $(PATHFC)lk_error/
+PATHU = $(PATHFC)utils/
+FILESC = ./srcs/pipex.c $(PATHIGD)init_and_get_splitted_path.c \
+$(PATHIGD)init_and_get_command.c $(PATHIGD)get_path.c $(PATHPE)print_errors.c \
+$(PATHPE)print_malloc_errors.c $(PATHIGLK)init_get_lk.c $(PATHIGLK)get_cmd.c \
+$(PATHRC)run_last_cmd.c $(PATHRC)run_first_cmd.c $(PATHPIE)pipex_errors.c \
+$(PATHLKE)lk_errors.c $(PATHU)destroy_data.c $(PATHU)utils.c \
+$(PATHCE)check_all_errors.c
 OBJS = $(addsuffix .o, $(notdir $(basename $(FILESC))))
 
 #bonus
-BONUSFILESC = run_mid_cmds_bonus.c
+PATHBONUS = ./srcs/bonus/
+BONUSFILESC = $(PATHBONUS)run_mid_cmds_bonus.c
 BONUSOBJS = $(addsuffix .o, $(notdir $(basename $(BONUSFILESC))))
 
 

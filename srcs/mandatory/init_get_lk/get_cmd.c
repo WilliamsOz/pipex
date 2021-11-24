@@ -6,11 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:24:26 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/21 15:23:18 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/24 17:18:32 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/pipex.h"
+#include "../../../inc/pipex.h"
 
 static char		*cpy_cmd_and_flags(char *cmd, char *av, int i, int cpy)
 {

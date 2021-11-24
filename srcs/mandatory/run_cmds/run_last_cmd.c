@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   run_last_cmd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 13:34:19 by user42            #+#    #+#             */
-/*   Updated: 2021/11/24 13:34:49 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/24 17:19:10 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/pipex.h"
+#include "../../../inc/pipex.h"
 
 void	last_cmd(t_data *data, t_lk_data *tmp, int count)
 {

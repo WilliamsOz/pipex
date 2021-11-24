@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex_structure.h                                  :+:      :+:    :+:   */
+/*   pipex_structures.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:08:57 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/24 16:58:38 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/24 17:20:04 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_STRUCTURE_H
-# define PIPEX_STRUCTURE_H
+#ifndef PIPEX_STRUCTURES_H
+# define PIPEX_STRUCTURES_H
 
 # include <unistd.h>
 # include <fcntl.h>
@@ -23,7 +23,6 @@
 //char *strerror(int errnum); => Obtenir le libellé d'un numéro d'erreur.
 // perror(strerror(errno));
 # include <errno.h> // errno
-# include "./pipex_structure.h"
 
 typedef struct s_lk_data
 {

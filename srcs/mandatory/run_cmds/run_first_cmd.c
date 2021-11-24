@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   run_first_cmd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 13:33:52 by user42            #+#    #+#             */
-/*   Updated: 2021/11/24 13:48:13 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/24 17:19:08 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/pipex.h"
+#include "../../../inc/pipex.h"
 
 void	first_cmd(t_data *data, t_lk_data *tmp)
 {
