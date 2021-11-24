@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 11:33:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/23 12:37:07 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/24 13:34:47 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ typedef struct s_data
 
 //DELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDEL
 
+void	last_cmd(t_data *data, t_lk_data *tmp, int count);
+void	first_cmd(t_data *data, t_lk_data *tmp);
+void	close_pipex_fd();
 void	free_lk(t_data *data, int count);
 void	destroy_data(t_data *data);
 void	free_splited_path(t_data *data, int count);

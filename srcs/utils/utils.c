@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 13:51:19 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/23 10:59:15 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/24 14:02:08 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/pipex.h"
+
+void	close_pipex_fd()
+{
+	close(0);
+	close(1);
+	close(2);
+}
 
 int		ft_lst_size(t_lk_data *lk)
 {
