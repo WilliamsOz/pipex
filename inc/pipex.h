@@ -3,51 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 11:33:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/24 13:34:47 by user42           ###   ########.fr       */
+/*   Updated: 2021/11/24 17:03:20 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
-
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdlib.h>
-# include <sys/wait.h>
-
-# include <stdio.h> //perror
-//void perror(const char *s); => Afficher un message d'erreur système  
-
-# include <string.h> //strerror
-//char *strerror(int errnum); => Obtenir le libellé d'un numéro d'erreur.
-// perror(strerror(errno));
-
-#include <errno.h> // errno
-
-typedef struct s_lk_data
-{
-	char				*path_cmd;
-	char				**cmd;
-	struct s_lk_data	*next;
-}				t_lk_data;
-
-typedef struct s_data
-{
-	char		*path; //not mal
-	char		**cmd; //**cmd mal not cmd[count]
-	char		**splited_path; //mal
-	t_lk_data	*lk_data; //mal
-	char		**env; //not_mal
-	int			input_file;
-	int			output_file;
-	int			**pipe_fd;
-	int			pipe_ret;
-	pid_t		child_pid;
-	int			status;
-}				t_data;
 
 //DELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDEL
 
@@ -60,6 +24,10 @@ typedef struct s_data
 #define ex exit (EXIT_FAILURE);
 
 //DELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDEL
+
+# define BONUS 0
+# include "./pipex_structure.h"
+# include "./pipex_bonus.h"
 
 void	last_cmd(t_data *data, t_lk_data *tmp, int count);
 void	first_cmd(t_data *data, t_lk_data *tmp);
