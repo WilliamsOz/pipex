@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 13:33:52 by user42            #+#    #+#             */
-/*   Updated: 2021/11/25 07:25:05 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 17:29:00 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,19 @@ void	first_cmd(t_data *data, t_lk_data *tmp)
 	{
 		link_here_doc(data);
 		close(data->pipe_fd[0][0]);
-		if (data->is_there_here_doc == 0)
+		if (data->is_there_here_doc == 0 && data->input_file != -1)
 			close(data->input_file);
 		dup2(data->pipe_fd[0][1], STDOUT_FILENO);
 		close(data->pipe_fd[0][1]);
-		execve(tmp->path_cmd, tmp->cmd, data->env);
+		if (tmp->unknow_cmd == 0)
+			execve(tmp->path_cmd, tmp->cmd, data->env);
 		execve_failed(data);
 	}
 	else
 	{
 		if (data->is_there_here_doc == 1)
 			close(data->here_doc_pipe[0]);
-		else
+		else if (data->input_file != -1)
 			close(data->input_file);
 		close(data->pipe_fd[0][1]);
 	}

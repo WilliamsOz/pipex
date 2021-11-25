@@ -6,14 +6,14 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 11:33:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 07:19:43 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 16:58:30 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-# define BONUS 0
+# define BONUS 1
 # include "./pipex_structures.h"
 # include "./pipex_bonus.h"
 
@@ -38,7 +38,7 @@ t_data	*get_path(t_data *data, char **env, int i, int j);
 t_data	*init_and_get_cmd(t_data *data, char **av, int count, int i);
 void	free_data(t_data *data);
 void	free_all_data(t_data *data, int count);
-void	command_doesnt_exist(t_data *data, char *cmd);
+void	command_doesnt_exist(t_data *data, char *cmd, int ind);
 void	path_env_modified(t_data *data);
 void	there_is_no_command(t_data *data);
 void	too_many_arguments();

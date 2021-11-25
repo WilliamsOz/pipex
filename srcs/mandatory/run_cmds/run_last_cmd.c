@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 13:34:19 by user42            #+#    #+#             */
-/*   Updated: 2021/11/25 07:12:21 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 17:29:09 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	last_cmd(t_data *data, t_lk_data *tmp, int count)
 		close(data->pipe_fd[count - 1][0]);
 		dup2(data->output_file, STDOUT_FILENO);
 		close(data->output_file);
-		execve(tmp->path_cmd, tmp->cmd, data->env);
+		if (tmp->unknow_cmd == 0)
+			execve(tmp->path_cmd, tmp->cmd, data->env);
 		execve_failed(data);
 	}
 	else

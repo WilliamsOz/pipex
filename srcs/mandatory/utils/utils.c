@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 13:51:19 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 07:36:18 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 17:53:04 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ void	ft_putstr(char *str)
 	write(1, str, len);
 }
 
-char	*get_command_pathern(char *s1, char *cmd, int i, int j)
+char	*get_command_pathern(char *spt_path, char *cmd, int i, int j)
 {
 	char	*dest;
 	int		len;
 
-	len = ft_strlen(s1);
+	len = ft_strlen(spt_path);
 	while (cmd[i] != '\0' && cmd[i] != ' ')
 		i++;
 	len += i;
@@ -69,9 +69,9 @@ char	*get_command_pathern(char *s1, char *cmd, int i, int j)
 		return (NULL);
 	dest[len] = '\0';
 	i = 0;
-	while (s1[i] != '\0')
+	while (spt_path[i] != '\0')
 	{
-		dest[i] = s1[i];
+		dest[i] = spt_path[i];
 		i++;
 	}
 	while (cmd[j] != '\0' && cmd[j] != ' ')

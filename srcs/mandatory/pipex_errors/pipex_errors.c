@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 17:29:01 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 07:35:46 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 16:59:13 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	fork_failed(t_data *data)
 
 void	execve_failed(t_data *data)
 {
-	perror(strerror(errno));
 	destroy_data(data);
 	close_pipex_fd();
 	exit (EXIT_FAILURE);

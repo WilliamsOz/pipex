@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:06:00 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 07:25:09 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 17:29:06 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static void	mid_cmd(t_data *data, t_lk_data *tmp, int count)
 		close(data->pipe_fd[count - 1][0]);
 		dup2(data->pipe_fd[count][1], STDOUT_FILENO);
 		close(data->pipe_fd[count][1]);
-		execve(tmp->path_cmd, tmp->cmd, data->env);
+		if (tmp->unknow_cmd == 0)
+			execve(tmp->path_cmd, tmp->cmd, data->env);
 		execve_failed(data);
 	}
 	else

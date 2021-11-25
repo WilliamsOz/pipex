@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 16:58:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 01:37:39 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 17:54:31 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,25 +39,32 @@ static t_data	*init_data_lk(t_data *data, int len)
 	return (data);
 }
 
-static char	*get_direct_path(t_data *data, int cmd, int path)
+static char	*get_direct_path(t_data *data, int cmd, int path, t_lk_data *tmp)
 {
-	char	*tmp;
+	char	*str_tmp;
 	int		ind;
 
 	ind = -1;
-	tmp = NULL;
+	str_tmp = NULL;
 	while (ind == -1)
 	{
-		tmp = get_command_pathern(data->splited_path[path],
+		str_tmp = get_command_pathern(data->splited_path[path],
 			data->cmd[cmd], 0, 0);
-		ind = access(tmp, F_OK | X_OK);
-		if (ind == -1)
+		ind = access(str_tmp, F_OK | X_OK);
+		if (ind != -1)
 		{
-			free(tmp);
-			path++;
+			tmp->unknow_cmd = 0;
+			return (str_tmp);
 		}
+		path++;
+		if (data->splited_path[path] == NULL)
+		{
+			tmp->unknow_cmd = 1;
+			return (str_tmp);
+		}
+		free(str_tmp);
 	}
-	return (tmp);
+	return (str_tmp);
 }
 
 static int	get_size_cmd_with_flags(char *av, int i)
@@ -91,7 +98,7 @@ t_data	*prepare_data_lk(t_data *data, char **av, int i, int cmd)
 			malloc_of_init_cmd_inside_lk_failed(data, i - 3);
 		tmp->cmd[len] = NULL;
 		data = get_cmd_and_flags(data, av[i], tmp);
-		tmp->path_cmd = get_direct_path(data, cmd, 0);
+		tmp->path_cmd = get_direct_path(data, cmd, 0, tmp);
 		tmp = tmp->next;
 		i++;
 		cmd++;

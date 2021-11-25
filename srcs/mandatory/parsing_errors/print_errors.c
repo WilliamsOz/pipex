@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 13:49:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 08:14:12 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 17:26:26 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ void	there_is_no_command(t_data *data)
 	exit (errno);
 }
 
-void	command_doesnt_exist(t_data *data, char *cmd)
+void	command_doesnt_exist(t_data *data, char *cmd, int ind)
 {
+	if (data->input_file == -1 && ind == 0)
+		return ;
+	ft_putstr("command not found: ");
 	ft_putstr(cmd);
-	ft_putstr(" command does not exist\n");
-	free_all_data(data, 0);
-	close_pipex_fd();
-	exit (errno);
+	write(1, "\n", 1);
 }
 
 void	too_many_arguments()

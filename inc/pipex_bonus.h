@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:06:15 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 08:07:04 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 16:36:33 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "./pipex_structures.h"
 
+void	ft_putstr(char *str);
 int 	get_next_line(int fd, char **line);
 void	here_doc_pipe(t_data *data, int eof);
 t_data	*bonus_open_in_out_files(t_data *data, char **av, int i);

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 11:16:59 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 01:42:48 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 17:48:23 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	check_absolute_path_access(t_data *data, int cmd)
 
 	ind = access(data->cmd[cmd], F_OK | X_OK);
 	if (ind == -1)
-		command_doesnt_exist(data, data->cmd[cmd]);
+		command_doesnt_exist(data, data->cmd[cmd], cmd);
 	return (ind);
 }
 
@@ -43,7 +43,7 @@ static void	verify_cmd(t_data *data, int cmd, int spath, int ind)
 			spath++;
 		}
 		if (ind == -1)
-			command_doesnt_exist(data, data->cmd[cmd]);
+			command_doesnt_exist(data, data->cmd[cmd], cmd);
 		spath = 0;
 		cmd++;
 	}
