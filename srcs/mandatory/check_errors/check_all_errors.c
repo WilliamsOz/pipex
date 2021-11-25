@@ -6,19 +6,31 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 11:16:59 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 17:48:23 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 19:55:49 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/pipex.h"
 
-static int	check_absolute_path_access(t_data *data, int cmd)
+static int	check_absolute_path_access(t_data *data, int cmd, int count)
 {
+	t_lk_data	*tmp;
 	int		ind;
 
+	tmp = data->lk_data;
+	while (count >= 0)
+	{
+		tmp = tmp->next;
+		count--;
+	}
 	ind = access(data->cmd[cmd], F_OK | X_OK);
 	if (ind == -1)
+	{
 		command_doesnt_exist(data, data->cmd[cmd], cmd);
+		tmp->unknow_cmd = 1;
+	}
+	else
+		tmp->unknow_cmd = 0;
 	return (ind);
 }
 
@@ -30,7 +42,7 @@ static void	verify_cmd(t_data *data, int cmd, int spath, int ind)
 	{
 		ind = -1;
 		if (data->cmd[cmd][0] == '/')
-			ind = check_absolute_path_access(data, cmd);
+			ind = check_absolute_path_access(data, cmd, cmd);
 		while (data->splited_path[spath] != NULL && ind == -1)
 		{
 			tmp = NULL;

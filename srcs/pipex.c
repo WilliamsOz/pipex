@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 11:32:09 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 17:59:55 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 19:54:59 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,7 @@ t_data	*open_in_out_files(t_data *data, char **av, int i)
 		i++;
 	data->input_file = open(av[1], O_RDWR);
 	if (data->input_file == -1)
-	{
-		ft_putstr("no such file or directory: ");
-		ft_putstr(av[1]);
-		write(1, "\n", 1);
-	}
+		perror(strerror(errno));
 	data->output_file = open(av[i], O_CREAT | O_RDWR | O_TRUNC,
 		S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 	return (data);
