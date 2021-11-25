@@ -6,17 +6,18 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 11:33:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 00:39:21 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 07:19:43 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-# define BONUS 1
+# define BONUS 0
 # include "./pipex_structures.h"
 # include "./pipex_bonus.h"
 
+t_data	*is_there_here_doc(t_data *data, char *av1, char *av2, int ac);
 void	last_cmd(t_data *data, t_lk_data *tmp, int count);
 void	first_cmd(t_data *data, t_lk_data *tmp);
 void	close_pipex_fd();

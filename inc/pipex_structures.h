@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:08:57 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 01:33:36 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 08:11:39 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 //char *strerror(int errnum); => Obtenir le libellé d'un numéro d'erreur.
 // perror(strerror(errno));
 # include <errno.h> // errno
+# define _GNU_SOURCE
 
 //DELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDELDEL
 

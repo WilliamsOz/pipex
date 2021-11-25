@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 01:24:00 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 01:50:49 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 07:44:52 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_strlen(char *str)
 	return (len);
 }
 
-char	*get_first_read(char *line, char *buffer)
+static char	*get_first_read(char *line, char *buffer)
 {
 	line = (char *)malloc(sizeof(char) * 2);
 	if (line == NULL)
@@ -32,7 +32,7 @@ char	*get_first_read(char *line, char *buffer)
 	return (line);
 }
 
-char	*get_next_reads(char *line, char *buffer)
+static char	*get_next_reads(char *line, char *buffer)
 {
 	char	*tmp;
 	int		len;

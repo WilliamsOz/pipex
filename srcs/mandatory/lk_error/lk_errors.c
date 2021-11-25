@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 14:18:41 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 00:26:34 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 08:14:01 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	data_lk_malloc_failed(t_data *data)
 	ft_putstr("Malloc of data linked list has failed\n");
 	free_all_data(data, 0);
 	close_pipex_fd();
-	exit (EXIT_FAILURE);
+	exit (errno);
 }
 
 void	link_inside_data_lk_failed(t_data *data)
@@ -41,7 +41,7 @@ void	link_inside_data_lk_failed(t_data *data)
 	ft_putstr("Malloc of some link in data linked list has failed\n");
 	free_all_data(data, 0);
 	close_pipex_fd();
-	exit (EXIT_FAILURE);
+	exit (errno);
 }
 
 void	malloc_of_init_cmd_inside_lk_failed(t_data *data, int i)
@@ -60,5 +60,5 @@ void	malloc_of_init_cmd_inside_lk_failed(t_data *data, int i)
 	free_all_data(data, 0);
 	ft_putstr("Malloc of initialisation of data lk has failed\n");
 	close_pipex_fd();
-	exit (EXIT_FAILURE);
+	exit (errno);
 }

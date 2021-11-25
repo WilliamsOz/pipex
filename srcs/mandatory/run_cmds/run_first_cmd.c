@@ -6,24 +6,18 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 13:33:52 by user42            #+#    #+#             */
-/*   Updated: 2021/11/25 02:04:00 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 07:25:05 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/pipex.h"
 
-static void	here_doc(t_data *data)
+static void	link_here_doc(t_data *data)
 {
 	if (data->is_there_here_doc == 1)
-	{
-		dup2(data->here_doc_pipe[1], STDIN_FILENO);
-		close(data->here_doc_pipe[1]);
-	}
+		dup2(data->here_doc_pipe[0], STDIN_FILENO);
 	else
-	{
 		dup2(data->input_file, STDIN_FILENO);
-		close(data->input_file);
-	}
 }
 
 void	first_cmd(t_data *data, t_lk_data *tmp)
@@ -33,9 +27,10 @@ void	first_cmd(t_data *data, t_lk_data *tmp)
 		fork_failed(data);
 	if (data->child_pid == 0)
 	{
+		link_here_doc(data);
 		close(data->pipe_fd[0][0]);
-		close(data->output_file);
-		here_doc(data);
+		if (data->is_there_here_doc == 0)
+			close(data->input_file);
 		dup2(data->pipe_fd[0][1], STDOUT_FILENO);
 		close(data->pipe_fd[0][1]);
 		execve(tmp->path_cmd, tmp->cmd, data->env);
@@ -43,7 +38,10 @@ void	first_cmd(t_data *data, t_lk_data *tmp)
 	}
 	else
 	{
-		close(data->input_file);
+		if (data->is_there_here_doc == 1)
+			close(data->here_doc_pipe[0]);
+		else
+			close(data->input_file);
 		close(data->pipe_fd[0][1]);
 	}
 	wait(&data->status);
