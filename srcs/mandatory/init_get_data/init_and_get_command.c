@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 14:38:05 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/24 17:18:23 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 01:36:55 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static t_data	*get_cmd(t_data *data, char **av, int count, int i)
 {
+	if (data->is_there_here_doc == 1)
+		i++;
 	while (av[i + 1] != NULL)
 	{
 		data->cmd[count] = av[i];
@@ -25,6 +27,8 @@ static t_data	*get_cmd(t_data *data, char **av, int count, int i)
 
 t_data	*init_and_get_cmd(t_data *data, char **av, int count, int i)
 {
+	if (data->is_there_here_doc == 1)
+		i++;
 	while (av[i + 1] != NULL)
 	{
 		count++;

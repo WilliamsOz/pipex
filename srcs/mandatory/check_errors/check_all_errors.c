@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 11:16:59 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/24 18:29:58 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 01:42:48 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,6 @@ static void	verify_cmd(t_data *data, int cmd, int spath, int ind)
 
 t_data	*check_all_errors(char **av, char **env, t_data *data)
 {
-	data = (t_data *)malloc(sizeof(t_data));
-	if (data == NULL)
-		data_malloc_failed();
 	data = get_path(data, env, 0, 0);
 	if (data->path == NULL)
 		path_env_modified(data);

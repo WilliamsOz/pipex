@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:08:57 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/24 18:20:19 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 01:33:36 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ typedef struct s_lk_data
 
 typedef struct s_data
 {
+	int			is_there_here_doc;
+	int			here_doc_pipe[2];
+	char		*limiter;
 	char		*path;
 	char		**cmd;
 	char		**splited_path;
@@ -56,6 +59,7 @@ typedef struct s_data
 	int			pipe_ret;
 	pid_t		child_pid;
 	int			status;
+	int			pipe_opening;
 }				t_data;
 
 #endif

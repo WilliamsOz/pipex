@@ -6,7 +6,7 @@
 #    By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 13:15:41 by wiozsert          #+#    #+#              #
-#    Updated: 2021/11/24 18:23:11 by wiozsert         ###   ########.fr        #
+#    Updated: 2021/11/25 01:44:57 by wiozsert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,17 +23,19 @@ PATHRC = $(PATHFC)run_cmds/
 PATHPIE = $(PATHFC)pipex_errors/
 PATHLKE = $(PATHFC)lk_error/
 PATHU = $(PATHFC)utils/
+PATHIP = $(PATHFC)init_pipes_data/
 FILESC = ./srcs/pipex.c $(PATHIGD)init_and_get_splitted_path.c \
 $(PATHIGD)init_and_get_command.c $(PATHIGD)get_path.c $(PATHPE)print_errors.c \
 $(PATHPE)print_malloc_errors.c $(PATHIGLK)init_get_lk.c $(PATHIGLK)get_cmd.c \
 $(PATHRC)run_last_cmd.c $(PATHRC)run_first_cmd.c $(PATHPIE)pipex_errors.c \
 $(PATHLKE)lk_errors.c $(PATHU)destroy_data.c $(PATHU)utils.c \
-$(PATHCE)check_all_errors.c
+$(PATHCE)check_all_errors.c $(PATHIP)prepare_pipes_data.c
 OBJS = $(addsuffix .o, $(notdir $(basename $(FILESC))))
 
 #bonus
 PATHBONUS = ./srcs/bonus/
-BONUSFILESC = $(PATHBONUS)run_mid_cmds_bonus.c
+BONUSFILESC = $(PATHBONUS)run_mid_cmds_bonus.c \
+$(PATHBONUS)init_here_doc_bonus.c $(PATHBONUS)get_next_line_bonus.c
 BONUSOBJS = $(addsuffix .o, $(notdir $(basename $(BONUSFILESC))))
 
 

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 11:33:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/24 18:27:58 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/25 00:39:21 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	link_inside_data_lk_failed(t_data *data);
 void	data_lk_malloc_failed(t_data *data);
 t_data	*check_all_errors(char **av, char **env, t_data *data);
 void	init_pipe_in_data_failed(t_data *data);
+t_data	*prepare_data_pipe(t_data *data, int len);
 t_data	*init_and_get_splitted_path(t_data *data);
 t_data	*get_path(t_data *data, char **env, int i, int j);
 t_data	*init_and_get_cmd(t_data *data, char **av, int count, int i);
