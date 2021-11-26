@@ -6,14 +6,14 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 11:33:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 16:58:30 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:10:19 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-# define BONUS 1
+# define BONUS 0
 # include "./pipex_structures.h"
 # include "./pipex_bonus.h"
 
@@ -27,7 +27,7 @@ void	free_splited_path(t_data *data, int count);
 void	pipe_opening_has_failed(t_data *data);
 t_data	*get_cmd_and_flags(t_data *data, char *av, t_lk_data *tmp);
 t_data	*prepare_data_lk(t_data *data, char **av, int i, int cmd);
-char	*get_command_pathern(char *s1, char *cmd, int i, int j);
+char	*get_command_pathern(t_data *data, char *spt_path, char *cmd);
 void	link_inside_data_lk_failed(t_data *data);
 void	data_lk_malloc_failed(t_data *data);
 t_data	*check_all_errors(char **av, char **env, t_data *data);

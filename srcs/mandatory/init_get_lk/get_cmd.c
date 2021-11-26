@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:24:26 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 17:47:17 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 11:53:20 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 static char		*cpy_cmd_and_flags(char *cmd, char *av, int i, int cpy)
 {
-	while (i > 0 && av[i] != ' ')
+	while (i > 0 && av[i] != ' ' && av[i] != '/')
 		i--;
+	if (av[i] == '/')
+		i += 1 ;
 	if (av[i] == ' ' && i > 0)
 		i++;
 	while (av[i] != '\0' && av[i] != ' ')
@@ -83,6 +85,17 @@ static t_data	*get_lk_cmd(t_data *data, t_lk_data *tmp_data, char *av, int i)
 
 t_data	*get_cmd_and_flags(t_data *data, char *av, t_lk_data *tmp)
 {
-	data = get_lk_cmd(data, tmp, av, 0);
+	int	i;
+
+	i = 0;
+	if (av[i] == '/')
+	{
+		while (av[i] != '\0' && av[i] != ' ')
+			i++;
+		while (av[i] != '/')
+			i--;
+		i += 1;
+	}
+	data = get_lk_cmd(data, tmp, av, i);
 	return (data);
 }

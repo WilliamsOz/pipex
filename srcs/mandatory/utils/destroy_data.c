@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 11:21:11 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 17:54:32 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:07:39 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void	free_lk(t_data *data, int count)
 		}
 		free(tmp->cmd[count]);
 		free(tmp->cmd);
-		free(tmp->path_cmd);
+		if (tmp->path_cmd != NULL)
+			free(tmp->path_cmd);
 		free(tmp);
 		count = 0;
 	}
