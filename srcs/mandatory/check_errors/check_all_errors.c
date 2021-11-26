@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 11:16:59 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/26 13:05:50 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 14:17:43 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static void	verify_cmd(t_data *data, int cmd, int spath, int ind)
 {
 	char	*tmp;
 
-	while (data->cmd[cmd] != NULL)
+	while (cmd < data->cmd_nbr)
 	{
 		ind = -1;
 		if (data->cmd[cmd][0] == '/')
@@ -103,6 +103,7 @@ static void	verify_cmd(t_data *data, int cmd, int spath, int ind)
 
 t_data	*check_all_errors(char **av, char **env, t_data *data)
 {
+	data->cmd_nbr = 0;
 	data = get_path(data, env, 0, 0);
 	if (data->path == NULL)
 		path_env_modified(data);

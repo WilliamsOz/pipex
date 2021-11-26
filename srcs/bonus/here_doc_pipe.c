@@ -6,23 +6,11 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 06:38:25 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/26 13:33:21 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:53:12 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/pipex_bonus.h"
-
-static int	ft_strcmp(char *s1, char *s2)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
-		i++;
-	if (s1[i] == '\0' && s2[i] == '\0')
-		return (1);
-	return (0);
-}
 
 static int	ft_strlen(char *str)
 {

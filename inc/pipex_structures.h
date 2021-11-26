@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:08:57 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/26 13:12:11 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 14:13:22 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_data
 	pid_t		child_pid;
 	int			status;
 	int			pipe_opening;
+	int			cmd_nbr;
 }				t_data;
 
 #endif

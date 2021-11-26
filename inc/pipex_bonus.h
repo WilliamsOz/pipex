@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:06:15 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/26 13:11:21 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 14:18:06 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ void		execve_failed(t_data *data);
 void		fork_failed(t_data *data);
 t_lk_data	*treat_mid_cmds(t_data *data, t_lk_data *tmp, int *ptr_count);
 void		pipe_opening_has_failed(t_data *data);
+int			ft_strcmp(char *s1, char *s2);
 
 #endif

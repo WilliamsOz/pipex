@@ -6,14 +6,14 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 11:33:16 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/26 13:34:05 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:57:29 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-# define BONUS 0
+# define BONUS 1
 # include "./pipex_structures.h"
 # include "./pipex_bonus.h"
 
@@ -56,5 +56,6 @@ void	data_cmd_malloc_failed(t_data *data);
 void	ft_putstr(char *str);
 int		ft_strlen(char *str);
 int		ft_lst_size(t_lk_data *lk);
+int		ft_strcmp(char *s1, char *s2);
 
 #endif
