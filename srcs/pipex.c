@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 11:32:09 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/26 13:57:38 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 15:08:38 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ t_data	*open_in_out_files(t_data *data, char **av, int i)
 		i++;
 	data->input_file = open(av[1], O_RDONLY);
 	if (data->input_file == -1)
-		perror(strerror(errno));
+	{
+		write(2, "bash: ", 7);
+		perror(av[1]);
+	}
 	data->output_file = open(av[i], O_CREAT | O_RDWR | O_TRUNC,
 			S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 	return (data);

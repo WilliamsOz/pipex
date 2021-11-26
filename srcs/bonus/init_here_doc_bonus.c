@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 00:43:47 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/26 13:59:53 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 15:09:03 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ t_data	*bonus_open_in_out_files(t_data *data, char **av, int i)
 	{
 		data->input_file = open(av[1], O_RDWR);
 		if (data->input_file == -1)
-			perror(strerror(errno));
+		{
+			write(2, "bash: ", 7);
+			perror(av[1]);
+		}
 	}
 	else
 		data->input_file = 0;
