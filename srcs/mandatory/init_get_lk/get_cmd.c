@@ -6,13 +6,13 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 17:24:26 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/26 11:53:20 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:28:13 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/pipex.h"
 
-static char		*cpy_cmd_and_flags(char *cmd, char *av, int i, int cpy)
+static char	*cpy_cmd_and_flags(char *cmd, char *av, int i, int cpy)
 {
 	while (i > 0 && av[i] != ' ' && av[i] != '/')
 		i--;
@@ -73,8 +73,8 @@ static t_data	*get_lk_cmd(t_data *data, t_lk_data *tmp_data, char *av, int i)
 		if (tmp_data->cmd[count] == NULL)
 			malloc_of_cmd_lk_failed(data, count - 1);
 		tmp_data->cmd[count][len] = '\0';
-		tmp_data->cmd[count] = 
-			cpy_cmd_and_flags(tmp_data->cmd[count], av, i -1, 0);
+		tmp_data->cmd[count] = cpy_cmd_and_flags(tmp_data->cmd[count],
+				av, i -1, 0);
 		while (av[i] != '\0' && av[i] == ' ')
 			i++;
 		len = 0;

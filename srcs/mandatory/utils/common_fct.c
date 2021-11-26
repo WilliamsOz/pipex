@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 11:59:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/26 12:01:46 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:09:42 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 void	ft_putstr(char *str)
 {
-	int len;
+	int	len;
 
 	len = ft_strlen(str);
 	write(1, str, len);
 }
 
-void	close_pipex_fd()
+void	close_pipex_fd(void)
 {
 	close(0);
 	close(1);
 	close(2);
 }
 
-int		ft_lst_size(t_lk_data *lk)
+int	ft_lst_size(t_lk_data *lk)
 {
 	t_lk_data	*tmp;
 	int			len;
@@ -42,7 +42,7 @@ int		ft_lst_size(t_lk_data *lk)
 	return (len);
 }
 
-int		ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 00:43:47 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 19:55:11 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:30:01 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ t_data	*bonus_open_in_out_files(t_data *data, char **av, int i)
 	{
 		data->input_file = open(av[1], O_RDWR);
 		if (data->input_file == -1)
-		perror(strerror(errno));
+			perror(strerror(errno));
 	}
 	if (data->is_there_here_doc == 1)
 		data->output_file = open(av[i], O_CREAT | O_RDWR | O_APPEND,
-			S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+				S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 	else if (data->is_there_here_doc == 0)
 		data->output_file = open(av[i], O_CREAT | O_RDWR | O_TRUNC,
-		S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+				S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 	return (data);
 }

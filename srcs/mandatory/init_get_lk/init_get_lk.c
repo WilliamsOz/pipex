@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 16:58:37 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/26 12:32:58 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:14:17 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ static char	*get_direct_path(t_data *data, int cmd, int path, t_lk_data *tmp)
 	while (ind == -1)
 	{
 		str_tmp = get_command_pathern(data, data->splited_path[path],
-			data->cmd[cmd]);
+				data->cmd[cmd]);
 		ind = access(str_tmp, F_OK | X_OK);
 		if (ind != -1)
 		{
@@ -93,7 +93,6 @@ static char	*get_direct_path(t_data *data, int cmd, int path, t_lk_data *tmp)
 		}
 		free(str_tmp);
 	}
-	ex
 	return (str_tmp);
 }
 

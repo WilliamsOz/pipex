@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 06:38:25 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 19:35:44 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:33:21 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static int	ft_strcmp(char *s1, char *s2)
 	return (0);
 }
 
-static int ft_strlen(char *str)
+static int	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')

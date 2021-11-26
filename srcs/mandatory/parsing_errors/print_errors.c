@@ -6,13 +6,13 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 13:49:04 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/26 11:36:59 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:08:00 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../inc/pipex.h"
 
-void	not_enough_arguments()
+void	not_enough_arguments(void)
 {
 	ft_putstr("There is not enough argument\n");
 	close_pipex_fd();
@@ -43,7 +43,7 @@ void	command_doesnt_exist(t_data *data, char *cmd, int ind)
 	write(2, ":command not found\n", 19);
 }
 
-void	too_many_arguments()
+void	too_many_arguments(void)
 {
 	ft_putstr("Too many arguments\n");
 	close_pipex_fd();

@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 01:24:00 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 16:10:08 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:30:18 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static char	*get_next_reads(char *line, char *buffer)
 	return (line);
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	char	buffer[1];
 	int		eof;

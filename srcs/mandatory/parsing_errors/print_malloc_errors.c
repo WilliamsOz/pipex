@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 13:40:43 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/25 08:14:16 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:08:20 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	data_cmd_malloc_failed(t_data *data)
 	exit (errno);
 }
 
-void	data_malloc_failed()
+void	data_malloc_failed(void)
 {
 	ft_putstr("Data malloc has failed\n");
 	close_pipex_fd();

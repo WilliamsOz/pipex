@@ -6,7 +6,7 @@
 /*   By: wiozsert <wiozsert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 11:16:59 by wiozsert          #+#    #+#             */
-/*   Updated: 2021/11/26 12:19:22 by wiozsert         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:05:50 by wiozsert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ static void	verify_cmd(t_data *data, int cmd, int spath, int ind)
 		{
 			tmp = NULL;
 			tmp = get_command_pathern(data, data->splited_path[spath],
-				data->cmd[cmd]);
+					data->cmd[cmd]);
 			if (tmp == NULL)
 				malloc_of_cmd_and_pathern_failed(data);
 			ind = access(tmp, F_OK | X_OK);
@@ -95,7 +95,7 @@ static void	verify_cmd(t_data *data, int cmd, int spath, int ind)
 			spath++;
 		}
 		if (ind == -1)
-			command_doesnt_exist(data, data->cmd[cmd], cmd);	
+			command_doesnt_exist(data, data->cmd[cmd], cmd);
 		spath = 0;
 		cmd++;
 	}
